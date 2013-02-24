@@ -126,15 +126,14 @@ class Radical extends Nodebase {
     in.setScale(new PVector (0.65, 0.65));
     in.setPosition(new PVector (40, 65));
   }
+  
+  
 
   void generateStructure(TShape _s, TShape _m, TShape _q, TShape _p) {
-   
-   clear();
-   
-  pushMatrix();
-  
-  //how many branches / layers? 
-  int numLayers = (int) random(1, 3);
+   clear(); 
+   pushMatrix();
+   //how many branches / layers? 
+   int numLayers = (int) random(1, 3);
   //int numLayers = 1;
 
   if (numLayers == 1) {
@@ -238,6 +237,7 @@ class Radical extends Nodebase {
   }
   popMatrix();
   }
+  
   Radical getChild(int index) {
     if ( index >= 0 && index < children.size() ) {
       return (Radical)children.get(index);

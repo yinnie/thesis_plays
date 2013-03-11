@@ -29,7 +29,7 @@ class Line {
   
   void createline() {
      //angle = random(-3);
-     strokeweight = random(0.7, 2.6);
+     strokeweight = random(0.9, 3.6);
      //construct the other vert position p1
     //vertical offset
     float yoffset = length*sin(angle); 

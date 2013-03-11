@@ -20,7 +20,7 @@ class Line {
     otherEnd = p0;
     length = _length;
     angle = _angle;
-    total = 5;
+    total = 4;
     vertices = new Vert[total]; 
     strokeweight = 1.0; 
     
@@ -28,8 +28,8 @@ class Line {
   }
   
   void createline() {
-     //angle = random(-3);
-     strokeweight = random(0.7, 2.6);
+
+     strokeweight = random(0.5, 5);
      //construct the other vert position p1
     //vertical offset
     float yoffset = length*sin(angle); 
@@ -44,7 +44,7 @@ class Line {
       PVector diff = PVector.sub(otherEnd.position, oneEnd.position); 
       float m = length/total;
       diff.normalize();
-      PVector v = new PVector(random(-1, 2), random(-2, 1));
+      PVector v = new PVector(random(-0.5, 0.5), random(-0.5, 0.7));
       diff.mult((i)*m);
       diff.add(v);
       vertices[i] = new Vert(diff);
@@ -55,9 +55,11 @@ class Line {
     
     beginShape();
     strokeWeight(strokeweight);
+    curveVertex(vertices[0].position.x+oneEnd.position.x, vertices[0].position.y+oneEnd.position.y);
     for (int i  = 0; i < total; i++) {
       curveVertex(vertices[i].position.x+oneEnd.position.x, vertices[i].position.y+oneEnd.position.y);
     } 
+     curveVertex(vertices[total-1].position.x+oneEnd.position.x, vertices[total-1].position.y+oneEnd.position.y);
     endShape();
   }
   void setAngle(float a) {

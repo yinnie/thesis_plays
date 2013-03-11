@@ -7,7 +7,20 @@ class Figure {
   PVector mlocation;
   //only consider 2d rotation for now
   float mrotation;
-
+  
+  Figure() {
+    PVector p = new PVector(0, 0);
+    //head = new Lim(p);
+    leftarm = new Lim(p);
+    rightarm = new Lim(p);
+    spine = new Lim(p);
+    leftleg = new Lim(p);
+    rightleg = new Lim(p);
+    mscale = new PVector(1.0, 1.0);
+    mlocation = new PVector(0.0, 0.0);
+    mrotation = 0.0;
+  }
+  
   Figure(PVector p) {
     //head = new Lim(p);
     leftarm = new Lim(p);

@@ -14,7 +14,7 @@ int marginV = 200;
  TShape q;
  TShape p;
       
-int n = 14; //total number of radicals draw types
+int n = 17; //total number of radicals draw types
 
 void setup() {
 

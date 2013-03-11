@@ -1,4 +1,3 @@
-//this class is a base class for anything that needs to have children. essentially a parent class
 
 class Nodebase {
   
@@ -39,7 +38,7 @@ class Nodebase {
     return children.size();
   }
     
-  void render() {
+  void draw() {
     // stub method 
   }  
      

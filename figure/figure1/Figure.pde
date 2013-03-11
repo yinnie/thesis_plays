@@ -1,7 +1,7 @@
 
 class Figure {
 
-  Lim leftarm, rightarm, spine, leftleg, rightleg;
+  Lim head, leftarm, rightarm, spine, leftleg, rightleg;
 
   PVector mscale;
   PVector mlocation;
@@ -9,7 +9,7 @@ class Figure {
   float mrotation;
 
   Figure(PVector p) {
-    //head = new Lim(p);
+    head = new Lim(p);
     leftarm = new Lim(p);
     rightarm = new Lim(p);
     spine = new Lim(p);
@@ -25,7 +25,7 @@ class Figure {
     translate(mlocation.x, mlocation.y);
     scale(mscale.x, mscale.y);
     rotate(radians(mrotation));
-   // head.render();
+    head.render();
     leftarm.render();
     rightarm.render();
     spine.render();
@@ -42,30 +42,44 @@ class Figure {
 
   void generate() {
     clear();  
-    //head.setLength(random(30, 40));
-    //head.setAngle(random(-2, -0.5));
-    //head.generate();
-    leftarm.setLength(random(20, 35));
+    head.setLength(random(20, 60));
+    head.setAngle(random(-2, -0.5));
+    head.generate();
+    leftarm.setLength(random(20, 30));
     leftarm.setAngle(random(2.6, 3.2));
     leftarm.generate();
-    rightarm.setLength(random(20, 35));
+    rightarm.setLength(random(20, 30));
     rightarm.setAngle(random(-0.3, 0.5));
     rightarm.generate();
-    spine.setLength(random(30, 35));
-    spine.setAngle(random(1.8, 2.2));
+    spine.setLength(random(15, 30));
+    spine.setAngle(random(1, 2.5));
     spine.generate();
-    
+
     Vert v = spine.lower;
     leftleg.setUpper(v);
     rightleg.setUpper(v);
 
-    leftleg.setLength(random(30, 35));
-    leftleg.setAngle(random(0, 1));
-    rightleg.setAngle(random(0, 0.5));
-    rightleg.setLength(random(30, 35));
+    leftleg.setLength(random(20, 30));
+    leftleg.setAngle(random(1, 3));
+    rightleg.setAngle(random(0, 1));
+    rightleg.setLength(random(20, 30));
     leftleg.generate();
     rightleg.generate();
-    //setRotation(random(3));   NEED TO CHECK THIS
+
+    float p = random(0, 1);
+    if (p > 0.9) { 
+      leftarm.visible = false;
+    }
+    if (p <0.5) {
+      rightarm.visible = false;
+    }
+    if (p <0.2) {
+      rightleg.visible = false;
+    }
+        if (p >0.95) {
+      leftleg.visible = false;
+    }
+    //setRotation(random(3));   
   }
 
   void setlocation(PVector p) {
@@ -81,6 +95,10 @@ class Figure {
   void clear() {
     //head is a Lim. Lim is a nodebase which has clear() method. 
     spine.clear();
+    leftarm.visible = true;
+    rightarm.visible = true;
+    leftleg.visible = true;
+    rightleg.visible = true;
   }
 }
 

@@ -22,7 +22,7 @@ float squarew, squareh;
 
 void setup() {
 
-  size(1400, 800);
+  size(1400, 1000);
   colorMode(HSB, 1, 1, 1);
   smooth();
   generateGrids();
@@ -55,10 +55,10 @@ void draw() {
 }
 
 void keyPressed() {
-  
+  if ( key ==' ') {
   generateGrids();
   generateFigures();
-  generateSymbols();
+  generateSymbols(); }
 }
 
 void initiateFigures() {
@@ -97,7 +97,7 @@ void initiateSymbols() {
 }
 
 void generateGrids() {
-  TColor col = ColorRange.SOFT.getColor();
+  TColor col = ColorRange.BRIGHT.getColor();
   //ReadonlyTColor coll = NamedColor.getForName("cyan");
   //TColor col = coll.copy();
   ColorTheoryStrategy ss = new TriadTheoryStrategy();

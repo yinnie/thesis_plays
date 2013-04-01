@@ -4,7 +4,7 @@
 Figure[] figures;
 
 void setup() {
-  size(600, 400);
+  size(400, 300);
   smooth();
   
   figures = new Figure[10];
@@ -22,12 +22,12 @@ void draw() {
 }
 
 void keyPressed() {
-
+  if ( key == ' '){
   for (int i = 0; i < 10; i++) {
     //PVector p = new PVector (random(width), random(height));
     //figures[i].setlocation(p); 
     figures[i].generate();
   }
- 
+  }
 }
 

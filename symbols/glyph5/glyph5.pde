@@ -4,21 +4,26 @@
 ArrayList<Radical> roots;
 ArrayList<TShape> shapes;
 
-int cols = 19;
-int rows = 16;
-int marginH = 300;
-int marginV = 200;
+int cols = 20;
+int rows = 10;
+int marginH = 0;
+int marginV = 0;
 
  TShape s;
  TShape m;
  TShape q;
  TShape p;
+ 
+ int cellSize = 250;
+ float baseScale = 0.1;
       
 int n = 14; //total number of radicals draw types
 
 void setup() {
-
-  size(720, 830);
+  int appWidth = int(cols * cellSize * baseScale);
+  int appHeight = int(rows * cellSize * baseScale);
+  println( "appWidth: " + appWidth + "\tappHeight: " + appHeight );  
+  size( appWidth, appHeight );
   background(255);
   smooth(); 
   
@@ -39,19 +44,26 @@ void setup() {
 void draw() {
 
   background(255);
+  
+  scale(baseScale);
 
   pushMatrix();
   //translate(100, 100);
-  scale(0.16);
   strokeWeight(20);
+  //scale(baseScale);
   for ( int j = 0; j < rows; j++) { 
    for ( int i = 0 ; i < cols; i++) {
-       roots.get(i+i*j).setPosition(new PVector (marginH +i*200, marginV +j*300)); 
+       roots.get(i+i*j).setPosition(new PVector (marginH +i*cellSize, marginV +j*cellSize)); 
        roots.get(i+i*j).draw();
    }
   }
   popMatrix();
   
+}
+
+void keyPressed() {
+  if ( key == 's' )
+    saveFrame();
 }
 
 void mousePressed() {

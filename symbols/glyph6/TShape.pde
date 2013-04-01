@@ -5,10 +5,10 @@
 class TShape {
 
   int drawType;  //the chosen shape type to draw
-  int unitLength = 150;
-  int startX = 50;
-  int startY = 50;
-  int gridSize = 300;
+  float unitLength = 150;
+  float startX = 50;
+  float startY = 50;
+  float gridSize = 300;
   float arcAngle;
   Line line1;
   
@@ -33,7 +33,7 @@ class TShape {
       line1.drawline();
       break;
       
-      /*
+      
       case (1):
       //vertical line 
        Line line1 = new Line(gridSize/2, startY, gridSize/2, startY+unitLength);
@@ -96,7 +96,7 @@ class TShape {
      arc(gridSize/2, gridSize/2, unitLength, unitLength, PI/2, PI/2-arcAngle);
      break;
     
-       */
+       
     }
   }
 }

@@ -53,10 +53,11 @@ void draw() {
 }
 
 void keyPressed() {
-  
+  if ( key ==' '){
   generateGrids();
   generateFigures();
   generateSymbols();
+  }
 }
 
 void initiateFigures() {

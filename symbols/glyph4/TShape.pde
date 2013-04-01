@@ -20,7 +20,7 @@ class TShape {
  
 
   void render() {
-
+strokeWeight(8);
     switch ( drawType) {
       case (0):
       //horizontal line 
@@ -36,18 +36,21 @@ class TShape {
       break;
       case (3):
       //diagnol 2
-      line(startX+unitLength, startY+unitLength, startX, startY);
+      line(startX+unitLength, startY, startX, startY+unitLength);
       case (4): 
       ellipse(gridSize/2, gridSize/2, unitLength, unitLength);
       //arc(gridSize/2, gridSize/2, unitLength, unitLength, PI/4*3, -PI/6);
       break;
       case (5):
-      rectMode(CENTER);
-      rect(gridSize/2, gridSize/2, unitLength, unitLength);
+      line(startX, startY, startX+unitLength, startY);
+      line(startX, startY, startX, startY+unitLength);
+      //line(startX+unitLength, startY, startX+unitLength, startY+unitLength);
+      //rectMode(CENTER);
+      //rect(gridSize/2, gridSize/2, unitLength, unitLength);
       break;
       case (6):
       arc(gridSize/2, gridSize/2, unitLength, unitLength, 0, PI/2);
-      //arc(gridSize/2, gridSize/2, unitLength, unitLength, PI/2, PI/2-arcAngle);
+    
       break;
       case (7):
       ellipse(gridSize/2, gridSize/2, unitLength/2, unitLength/2);
@@ -62,17 +65,28 @@ class TShape {
       break;
       case (10):
       arc(gridSize/2, gridSize/2, unitLength, unitLength, PI/2, PI);
-      break;
+      break;  
       case(11):
-      line(startX, startY, startX+unitLength, startY);
-      line(startX+unitLength, startY+unitLength, startX+unitLength, startY);
+      line(startX, startY, startX, startY+unitLength);
+      line(startX, startY+unitLength, startX+unitLength, startY+unitLength);
+      break;
       case(12):
       line(startX, startY, startX, startY+unitLength);
-      line(startX, startY, startX+unitLength, startY);
-      case(13):
-      line(startX, startY, startX, startY+unitLength);
-      line(startX, startY, startX+unitLength, startY);
+      line(startX, startY+unitLength, startX+unitLength, startY+unitLength);
       line(startX+unitLength, startY+unitLength, startX+unitLength, startY);
+      case(13):
+     arc(gridSize/2, gridSize/2, unitLength, unitLength, PI/2, PI/2-arcAngle);
+     break;
+     case(14):
+      triangle (startX-unitLength*0.35, startY+unitLength/4, startX, startY, startX+unitLength*0.3, startY+unitLength*0.5);
+     break;
+        case(15):
+      rect(gridSize/2, gridSize/2, unitLength/3, unitLength/3);
+     break;
+           case(16):
+           fill(0);
+      ellipse(gridSize/2, gridSize/2, unitLength/4, unitLength/4);
+     break;
       
        
     }

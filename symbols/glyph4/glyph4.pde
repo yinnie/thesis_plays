@@ -1,8 +1,9 @@
 //ways to compose symbols according to set structures/frameworks
 //structures to choose from:  a. top/down  b. top/middle/bottom c. left/right d. left/middle/right
 
+
 ArrayList<TShape> shapes;
-int n = 14; //total number of radicals 
+int n = 17; //total number of radicals 
 
 Radical root;
 
@@ -31,17 +32,18 @@ void setup() {
 void draw() {
 
   background(255);
+  /*
   pushStyle();
   noFill();
   stroke(255, 0, 0);
   strokeWeight(0.5);
   rectMode(CENTER);
   rect(width/2-20, height/2-20, 300, 300);
-  popStyle();
+  popStyle();  */
 
   pushMatrix();
-  translate(100, 100);
-  //scale(0.8);
+  translate(-15, -30);
+  scale(2.5);
   root.draw();
   popMatrix();
   
@@ -166,10 +168,15 @@ void generateStructure() {
   }
 }
 
-void mousePressed() {
-  generateStructure();
+void keyPressed() {
+  if ( key == ' ') {
+  generateStructure(); }
 }
 
+void mousePressed() {
+
+   saveFrame("sym##.png");
+}
 
 
 

@@ -33,13 +33,6 @@ void setup() {
     shapes.add(s);
   }
   
-  /*
-  specialShapes = new ArrayList();
-  for (int i = 13; i <=17; i++ ) {
-    PShape s = shapes.get(i);
-    specialShapes.add(s);
-  }
-  */
   //assign special radicals..ref at top of page
   lefttopShape = shapes.get(16);
   allsurroundShape = shapes.get(13);
@@ -175,7 +168,9 @@ void generateStructure() {
 
 void keyPressed() {
   //textTyped = key;
+  if ( key == ' ') {
   generateStructure();
+  }
 }
 
 void mousePressed() {

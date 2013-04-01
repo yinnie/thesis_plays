@@ -14,7 +14,7 @@ int marginV = 200;
  TShape q;
  TShape p;
       
-int n = 1; //total number of radicals draw types
+int n = 15; //total number of radicals draw types
 
 void setup() {
 
@@ -43,7 +43,7 @@ void draw() {
 
   pushMatrix();
   //translate(100, 100);
-  scale(0.16);
+  scale(0.6);
   strokeWeight(20);
   for ( int j = 0; j < rows; j++) { 
    for ( int i = 0 ; i < cols; i++) {

@@ -4,7 +4,7 @@
 ArrayList<Radical> roots;
 ArrayList<TShape> shapes;
 
-int cols = 19;
+int cols = 40;
 int rows = 16;
 int marginH = 300;
 int marginV = 200;
@@ -18,7 +18,7 @@ int n = 17; //total number of radicals draw types
 
 void setup() {
 
-  size(720, 830);
+  size(1280, 830);
   background(255);
   smooth(); 
   

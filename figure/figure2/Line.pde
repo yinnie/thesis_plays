@@ -20,7 +20,7 @@ class Line {
     otherEnd = p0;
     length = _length;
     angle = _angle;
-    total = 5;
+    total = 10;
     vertices = new Vert[total]; 
     strokeweight = 1.0; 
     
@@ -29,7 +29,7 @@ class Line {
   
   void createline() {
 
-     strokeweight = random(0.3, 5);
+     strokeweight = random(0.1, 0.5);
      //strokeweight = 1.5;
      //construct the other vert position p1
     //vertical offset

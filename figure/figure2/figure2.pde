@@ -1,9 +1,9 @@
 //generative human figure 
 //parts: head, two arms, body, two legs 
-
+import processing.pdf.*;
 
 Figure[] figures;
-int n = 30;
+int n = 500;
 
 void setup() {
   size(800, 600);
@@ -11,24 +11,26 @@ void setup() {
   
   figures = new Figure[n];
   for (int i = 0; i < n; i++) {
-    PVector p = new PVector (random(width), random(height));
+    PVector p = new PVector (random(width*1.5), random(height*1.5));
      figures[i] = new Figure (p);
   }
 }
 
 void draw() {
+  beginRecord( PDF, "scribbles.pdf");
   background(255);
   for (int i = 0; i < n; i++) {
     figures[i].render();
   }
+  endRecord();
 }
 
 void keyPressed() {
 
   for (int i = 0; i < n; i++) {
-    //PVector p = new PVector (random(width), random(height));
+    //PVector p = new PVector (random(width/3, width/2), random(height*0.75, height));
     //figures[i].setlocation(p); 
-    float f = random(0.8, 1.2);
+    float f = random(0.1, 0.5);
     PVector s = new PVector (f, f);
     figures[i].setscale(s);
     figures[i].generate();

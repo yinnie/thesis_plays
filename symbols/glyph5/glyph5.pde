@@ -22,8 +22,11 @@ int n = 14; //total number of radicals draw types
 void setup() {
   int appWidth = int(cols * cellSize * baseScale);
   int appHeight = int(rows * cellSize * baseScale);
-  println( "appWidth: " + appWidth + "\tappHeight: " + appHeight );  
-  size( appWidth, appHeight );
+  println( "appWidth: " + appWidth + "\tappHeight: " + appHeight ); 
+  
+ // size( appWidth, appHeight );
+ 
+  size( 500, 500);
   background(255);
   smooth(); 
   

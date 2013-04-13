@@ -51,7 +51,7 @@ void draw() {
   }
   pushMatrix();
   //translate(100, 100);
-  scale(0.15);
+  scale(0.1);
   strokeWeight(100);
   for ( int j = 0; j < rows; j++) { 
    for ( int i = 0 ; i < cols; i++) {

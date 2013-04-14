@@ -5,10 +5,10 @@ import processing.pdf.*;
 ArrayList<Radical> roots;
 ArrayList<TShape> shapes;
 
-int cols = 15;
+int cols = 1;
 int rows = 1;
-int marginH = 0;
-int marginV = 0;
+int marginH = 300;
+int marginV = 400;
 
  TShape s;
  TShape m;
@@ -17,9 +17,9 @@ int marginV = 0;
       
 int n = 17; //total number of radicals draw types
 boolean recording = false;
-float w = 12; //inch A4
-float h = 3; // inch 
-float scalefactor = 100;
+float w = 8.3; //inch A4
+float h = 11.7; // inch 
+float scalefactor = 50;
 int counter = 1;
 
 void setup() {
@@ -47,18 +47,17 @@ void setup() {
 
 void draw() {
 
-
+  background(255);
    if( recording ) {
   beginRecord(PDF, "print" + counter + ".pdf");
   }
-    background(255);
   pushMatrix();
   //translate(100, 100);
-  scale(0.3);
+  scale(0.5);
   strokeWeight(100);
   for ( int j = 0; j < rows; j++) { 
    for ( int i = 0 ; i < cols; i++) {
-       roots.get(i+i*j).setPosition(new PVector (marginH +i*180, marginV +j*150)); 
+       roots.get(i+i*j).setPosition(new PVector (marginH +i*200, marginV +j*220)); 
        roots.get(i+i*j).draw();
    }
   }

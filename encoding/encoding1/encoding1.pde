@@ -1,14 +1,12 @@
-//ways to compose symbols according to set structures/frameworks
-//structures to choose from:  a. top/down  b. top/middle/bottom c. left/right d. left/middle/right
 import processing.pdf.*;
 
 ArrayList<Radical> roots;
 ArrayList<TShape> shapes;
 
-int cols = 15;
-int rows = 1;
-int marginH = 0;
-int marginV = 0;
+int cols = 50;
+int rows = 10;
+int marginH = 100;
+int marginV = 100;
 
  TShape s;
  TShape m;
@@ -51,14 +49,14 @@ void draw() {
    if( recording ) {
   beginRecord(PDF, "print" + counter + ".pdf");
   }
-    background(255);
+    background(0);
   pushMatrix();
   //translate(100, 100);
-  scale(0.3);
+  scale(0.1);
   strokeWeight(100);
   for ( int j = 0; j < rows; j++) { 
    for ( int i = 0 ; i < cols; i++) {
-       roots.get(i+i*j).setPosition(new PVector (marginH +i*180, marginV +j*150)); 
+       roots.get(i+i*j).setPosition(new PVector (marginH +i*300, marginV +j*320)); 
        roots.get(i+i*j).draw();
    }
   }

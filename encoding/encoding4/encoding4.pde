@@ -26,9 +26,9 @@ void setup() {
   textSize(16);
   words = new HashMap();
   //upload data from old file
-  convertFiletoHashmap("wordEncoding.txt");
+  convertFiletoHashmap("wordEncoding0.txt");
   //create a new file with the same name so to overwrite
-  output = createWriter("wordEncoding.txt");
+  output = createWriter("wordEncoding1.txt");
 
   inputString = "B06";
   glyph = new Radical(inputString);

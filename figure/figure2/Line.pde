@@ -28,7 +28,9 @@ class Line {
   }
   
   void createline() {
-
+    
+    stroke(0);
+    
      strokeweight = random(0.1, 0.5);
      //strokeweight = 1.5;
      //construct the other vert position p1
@@ -45,7 +47,7 @@ class Line {
       PVector diff = PVector.sub(otherEnd.position, oneEnd.position); 
       float m = length/total;
       diff.normalize();
-      PVector v = new PVector(random(-0.5, 0.5), random(-0.5, 0.7));
+      PVector v = new PVector(random(-0.2, 0.2), random(-0.2, 0.3));
       diff.mult((i)*m);
       diff.add(v);
       vertices[i] = new Vert(diff);

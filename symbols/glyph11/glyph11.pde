@@ -6,7 +6,7 @@ ArrayList<Radical> roots;
 ArrayList<TShape> shapes;
 
 int cols = 15;
-int rows = 1;
+int rows = 15;
 int marginH = 0;
 int marginV = 0;
 
@@ -54,7 +54,7 @@ void draw() {
     background(255);
   pushMatrix();
   //translate(100, 100);
-  scale(0.3);
+  scale(0.06);
   strokeWeight(100);
   for ( int j = 0; j < rows; j++) { 
    for ( int i = 0 ; i < cols; i++) {

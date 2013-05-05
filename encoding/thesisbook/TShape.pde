@@ -80,7 +80,9 @@ class TShape {
      case(16):
       fill(0);
       ellipse(l*0.75, l*0.75, l/5.5, l/5.5);
-     break;        
+     break; 
+     case(17):
+     break;     
     }
   }
 }

@@ -82,8 +82,11 @@ class Radical extends Nodebase {
    clear(); 
    pushMatrix();
    //how many branches / layers? 
-   int numLayers = (int) random(1, 3);
-  if (numLayers == 1 ) {
+   int numLayers = (int) random(0, 3);
+   if(numLayers == 0) {
+      
+   }
+  else if (numLayers == 1 ) {
 
     //choose a structure
      int struct = (int) random(0, 2);

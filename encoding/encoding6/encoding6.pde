@@ -28,20 +28,20 @@ ControlP5 cp5;
 DropdownList drop0, dropLayers; //drop0 is for encode methods
 PFont font;
 boolean encodingState = true;  //false will be decoding state
-PGraphics pg; 
+//PGraphics pg; 
 
 void setup() {
 
-  size( 900, 720, P2D);
+  size( 900, 720);
   background(255);
   smooth(); 
-  pg = createGraphics(200, 200);
+  //pg = createGraphics(200, 200);
   textSize(16);
   words = new HashMap();
   //upload data from old file
-  convertFiletoHashmap("wordEncoding0.txt");
+  convertFiletoHashmap("wordEncoding1.txt");
   //create a new file with the same name so to overwrite
-  output = createWriter("wordEncoding1.txt");
+  output = createWriter("wordEncoding2.txt");
 
   inputString = "B06";
   glyph = new Radical(inputString);

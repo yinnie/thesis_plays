@@ -52,7 +52,7 @@ class TShape {
       g.line(l, l*0.5, l/2, l);
      break;
      case(8):
-      g.fill(255);
+      g.fill(0);
       g.ellipse(l*0.75, l*0.25, l/8, l/8);
      break; 
       case (9):

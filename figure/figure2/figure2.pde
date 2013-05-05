@@ -11,7 +11,7 @@ void setup() {
   
   figures = new Figure[n];
   for (int i = 0; i < n; i++) {
-    PVector p = new PVector (random(width*1.5), random(height*1.5));
+    PVector p = new PVector (random(width*0.5), random(height*2.5));
      figures[i] = new Figure (p);
   }
 }

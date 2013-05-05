@@ -5,8 +5,8 @@ import processing.pdf.*;
 ArrayList<Radical> roots;
 ArrayList<TShape> shapes;
 
-int cols = 1;
-int rows = 1;
+int cols = 10;
+int rows = 10;
 int marginH = 300;
 int marginV = 400;
 

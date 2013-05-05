@@ -7,6 +7,8 @@
 //no.16 left top
 //no.17 top surround
 
+import processing.pdf.*;
+
 ArrayList<PShape> shapes;
 int m = 18; //total number of radicals in data folder
 int n = 14; //number of normal radical shapes in data folder. i.e No.0 to No.12 !!!debatable!!
@@ -19,6 +21,7 @@ PShape topdownShape;
 PShape leftsurroundShape;
 
 Radical root;
+Boolean recording;
 
 void setup() {
 
@@ -41,24 +44,22 @@ void setup() {
   leftsurroundShape = shapes.get(17);
 
   root = new Radical();
+  recording = false;
 }
 
 void draw() {
-
+  
+  if(recording) {
+    beginRecord(PDF, frameCount + ".pdf");
+  }
   background(255);
-  pushStyle();
-  noFill();
-  stroke(255, 0, 0);
-  strokeWeight(0.8);
-  rect(100, 100, 290, 290);
-  popStyle();
-
+ 
   pushMatrix();
   translate(100, 100);
   //scale(0.6);
   root.draw();
   popMatrix();
- 
+  endRecord();
 }
 
 void generateStructure() {
@@ -170,6 +171,9 @@ void keyPressed() {
   //textTyped = key;
   if ( key == ' ') {
   generateStructure();
+  }
+  if( key == 'q') {
+    recording = !recording;
   }
 }
 

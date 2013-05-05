@@ -22,7 +22,7 @@ float squarew, squareh;
 
 void setup() {
 
-  size(1400, 1000);
+  size(920, 800);
   colorMode(HSB, 1, 1, 1);
   smooth();
   generateGrids();
@@ -65,9 +65,9 @@ void initiateFigures() {
   figures = new Figure[n];
   //figures far away...
   for (int i = 0; i < n; i++) {
-    PVector p = new PVector (random(width), random(height/2, height));
+    PVector p = new PVector (random(width), random(0, height));
     figures[i] = new Figure (p);
-    float f = random(0.6, 1.2);
+    float f = random(0.3, 0.6);
     PVector s = new PVector (f, f);
     figures[i].setscale(s);
 }
@@ -120,7 +120,7 @@ void generateSymbols() {
     q = shapes.get((int)random(nRadicals));
     p = shapes.get((int)random(nRadicals)); 
     roots.get(i).setPosition(new PVector (random(width*5), random(height*5)));
-    float factor = random(0.3, 0.98); 
+    float factor = random(0.3, 0.6); 
     roots.get(i).setScale(new PVector (factor, factor));
     roots.get(i).generateStructure(s, p, u, q);
   }

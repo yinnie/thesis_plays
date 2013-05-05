@@ -14,6 +14,9 @@ String group2string, group2string0, group2string1, group2string2;  //group2 i.e.
 String group3string, group3string0, group3string1, group3string2; //group3 i.e.child1
 String keyword; //the English word we want to encode
 String textString; //for translation
+String textString0;
+String textString1;
+String textString2;
 boolean encodefinish = false;
 boolean inputfinish = false; //for translation
 boolean decodeWord = false; 
@@ -32,16 +35,16 @@ PGraphics pg;
 
 void setup() {
 
-  size( 900, 720, P2D);
+  size( 900, 800, P2D);
   background(255);
   smooth(); 
   pg = createGraphics(250, 250, P2D);
   textSize(28);
   words = new HashMap();
   //upload data from old file
-  convertFiletoHashmap("wordEncoding0.txt");
+  convertFiletoHashmap("wordEncoding1.txt");
   //create a new file with the same name so to overwrite
-  output = createWriter("wordEncoding1.txt");
+  output = createWriter("wordEncoding2.txt");
 
   inputString = "B06";
   glyph = new Radical(inputString);
@@ -58,7 +61,9 @@ void setup() {
   group3string2 = "";
   keyword ="";
   textString="";
-
+  textString0="";
+  textString1="";
+  textString2="";
   initCP5();
   reset();
 }
@@ -70,6 +75,9 @@ void draw() {
   if (encodingState) {
     cp5.getController("input word").show();
     cp5.getController("input word to decode").hide();
+    cp5.getController("poetry1").hide();
+    cp5.getController("poetry2").hide();
+    cp5.getController("poetry3").hide();
     drop0.show();
     if (showEnterCodeField == true) {
       cp5.getController("enter encoding").show();
@@ -118,26 +126,32 @@ void draw() {
   }
   if (!encodingState) {
     cp5.getController("input word to decode").show();
+    cp5.getController("poetry1").show();
+    cp5.getController("poetry2").show();
+    cp5.getController("poetry3").show();
     cp5.getController("input word").hide();
     cp5.getController("enter encoding").hide();
     drop0.hide();
     if ( decodeWord == true) {
-      renderMatchingGlyph(textString);
+      renderMatchingGlyph(textString, 200);
+      renderMatchingGlyph(textString0, 300);
+      renderMatchingGlyph(textString1, 400);
+      renderMatchingGlyph(textString2, 500);
     }
   } 
 }
 
-void renderMatchingGlyph(String s) { 
+void renderMatchingGlyph(String s, int h) { 
   String[] input = split(s, ' ');
 
   pushMatrix();
-  translate(400, 200);
-  scale(0.3);
+  translate(400, h);
+  scale(0.35);
   for ( int i = 0; i < input.length; i++) {
     String word = input[i];
     if (words.containsKey(word)) {
       Radical r = (Radical) words.get(word);
-      translate(150,0);
+      translate(200,0);
       r.render(this.g);
     }
     else {
@@ -152,6 +166,9 @@ void reset() {
   inputString = "";
   keyword = "";
   textString = "";
+  textString0 = "";
+  textString1 = "";
+  textString2 = "";
   encodefinish = false;
   inputfinish = false;
 }
@@ -212,8 +229,35 @@ void initCP5() {
               .setColorForeground(color(95))
                 .setAutoClear(false)
                   ;
-  cp5.addBang("clear")
+    cp5.addTextfield("poetry1")
+    .setPosition(x, y+step)
+      .setSize(w*2, h)
+        .setFont(font)
+          .setColor(color(255, 0, 0))
+            .setColorBackground(color(60))
+              .setColorForeground(color(95))
+                .setAutoClear(false)
+                  ;
+    cp5.addTextfield("poetry2")
+    .setPosition(x, y+step*2)
+      .setSize(w*2, h)
+        .setFont(font)
+          .setColor(color(255, 0, 0))
+            .setColorBackground(color(60))
+              .setColorForeground(color(95))
+                .setAutoClear(false)
+                  ;
+    cp5.addTextfield("poetry3")
     .setPosition(x, y+step*3)
+      .setSize(w*2, h)
+        .setFont(font)
+          .setColor(color(255, 0, 0))
+            .setColorBackground(color(60))
+              .setColorForeground(color(95))
+                .setAutoClear(false)
+                  ;
+  cp5.addBang("clear")
+    .setPosition(x, y+step*5)
       .setSize(80, h)
         .setColorBackground(color(60))
           .setColorForeground(color(95))
@@ -221,7 +265,7 @@ void initCP5() {
               .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
                 ; 
   cp5.addBang("quit")
-    .setPosition(x, y+step*4)
+    .setPosition(x, y+step*6)
       .setSize(80, h)
         .setColorBackground(color(60))
           .setColorForeground(color(95))
@@ -501,6 +545,22 @@ void controlEvent(ControlEvent theEvent) {
       textString = theEvent.getStringValue();
       decodeWord = true;
     }
+    else if (theEvent.isFrom(cp5.getController("poetry1"))) {
+      //clear screen 
+      textString0 = theEvent.getStringValue();
+      decodeWord = true;
+    }
+    else if (theEvent.isFrom(cp5.getController("poetry2"))) {
+      //clear screen 
+      textString1 = theEvent.getStringValue();
+      decodeWord = true;
+    }
+     else if (theEvent.isFrom(cp5.getController("poetry3"))) {
+      //clear screen 
+      textString2 = theEvent.getStringValue();
+      decodeWord = true;
+    }
+    
   }
   println("controlEvent: accessing a string from controller '"
     +theEvent.getName()+"': "
@@ -641,6 +701,9 @@ void clear() {
   cp5.get(Textfield.class, "input word").clear();
   cp5.get(Textfield.class, "enter encoding").clear();
   cp5.get(Textfield.class, "input word to decode").clear();
+  cp5.get(Textfield.class, "poetry1").clear();
+  cp5.get(Textfield.class, "poetry2").clear();
+  cp5.get(Textfield.class, "poetry3").clear();
   decodeWord = false;
   showEnterCodeField = false;
   showLayerChoise = false;

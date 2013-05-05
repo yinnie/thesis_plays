@@ -3,10 +3,10 @@ import processing.pdf.*;
 ArrayList<Radical> roots;
 ArrayList<TShape> shapes;
 
-int cols = 50;
-int rows = 50;
+int cols = 190;
+int rows = 20;
 int marginH = 100;
-int marginV = 100;
+int marginV = 300;
 
  TShape s;
  TShape m;
@@ -26,7 +26,7 @@ void setup() {
   float h0 = h*scalefactor;
 
 //  size( (int)w0, (int)h0);
-size(950, 750);
+size(3000, 460);
   background(255);
   smooth(); 
   
@@ -53,11 +53,11 @@ void draw() {
     background(0);
   pushMatrix();
   //translate(100, 100);
-  scale(0.09);
+  scale(0.06);
   strokeWeight(100);
   for ( int j = 0; j < rows; j++) { 
    for ( int i = 0 ; i < cols; i++) {
-       roots.get(i+i*j).setPosition(new PVector (marginH +i*330, marginV +j*330)); 
+       roots.get(i+i*j).setPosition(new PVector (marginH +i*260, marginV +j*350)); 
        roots.get(i+i*j).draw();
    }
   }

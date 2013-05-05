@@ -33,16 +33,16 @@ String[] fileString; //string to hold the txt file
 
 void setup() {
 
-  size( 900, 800, P2D);
+  size( 1200, 800, P2D);
   background(255);
   smooth(); 
   pg = createGraphics(250, 250, P2D);
   textSize(28);
   words = new HashMap();
   //upload data from old file
-  convertFiletoHashmap("wordEncoding0.txt");
+  convertFiletoHashmap("wordEncoding1.txt");
   //create a new file with the same name so to overwrite
-  output = createWriter("wordEncoding1.txt");
+  output = createWriter("wordEncoding2.txt");
 
   inputString = "B06";
   glyph = new Radical(inputString);
@@ -67,6 +67,21 @@ void setup() {
 void draw() {
 
   background(255);
+  hideAllControls();
+  /* //draw individual strokes
+  scale(0.4);
+  for ( int i = 0; i <= 1; i++) {
+  Radical r = new Radical();
+  pushMatrix();
+  translate(400*i, 200);
+  if(i >=4) {
+    translate(100, 0);
+  }
+  r.setShape(i);
+  r.render(this.g);
+  popMatrix();
+  }  */
+  //draw all the words with heir glyphs
   pushMatrix();
   translate(50, 30);
   int step = 30;
@@ -90,10 +105,9 @@ void draw() {
      }
   }
      popMatrix();
-  
-  hideAllControls();
-      
+     
     /*
+    //below is normal code
   background(0);
      //encode state
      if (encodingState) {

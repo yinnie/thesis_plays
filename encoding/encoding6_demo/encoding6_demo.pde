@@ -278,8 +278,9 @@ void initCP5() {
       .setSize(w*2, h)
         .setFont(font)
           .setColor(color(255, 0, 0))
-            .setColorBackground(color(60))
-              .setColorForeground(color(95))
+             .setColorActive(color(90))
+           .setColorBackground(color(60))
+            .setColorForeground(color(95))
                 .setAutoClear(false)
                 
                   ;
@@ -288,8 +289,9 @@ void initCP5() {
       .setSize(w*2, h)
         .setFont(font)
           .setColor(color(255, 0, 0))
-            .setColorBackground(color(60))
-              .setColorForeground(color(95))
+             .setColorActive(color(90))
+           .setColorBackground(color(60))
+            .setColorForeground(color(95))
                 .setAutoClear(false)
                  
                   ;
@@ -298,8 +300,9 @@ void initCP5() {
       .setSize(w*2, h)
         .setFont(font)
           .setColor(color(255, 0, 0))
-            .setColorBackground(color(60))
-              .setColorForeground(color(95))
+             .setColorActive(color(90))
+           .setColorBackground(color(60))
+            .setColorForeground(color(95))
                 .setAutoClear(false)
                   ;
   cp5.addTextfield("poetry3")
@@ -307,8 +310,9 @@ void initCP5() {
       .setSize(w*2, h)
         .setFont(font)
           .setColor(color(255, 0, 0))
-            .setColorBackground(color(60))
-              .setColorForeground(color(95))
+             .setColorActive(color(90))
+           .setColorBackground(color(60))
+            .setColorForeground(color(95))
                 .setAutoClear(false)
                   ;
 
@@ -317,9 +321,10 @@ void initCP5() {
       .setSize(200, 200)
         .setFont(createFont("arial", 12))
           .setLineHeight(14)
-            .setColor(color(128))
-              .setColorBackground(color(255, 100))
-                .setColorForeground(color(255, 100));
+            .setColor(color(0))
+              
+           .setColorBackground(color(255))
+            
   ;
   myTextarea.setText("call die happy die know not"
     +"have ear open say own wrong"
@@ -333,16 +338,18 @@ void initCP5() {
   cp5.addBang("clear")
     .setPosition(x, y+step*5)
       .setSize(80, h)
-        .setColorBackground(color(60))
-          .setColorForeground(color(95))
+         .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(60))
+            .setColorForeground(color(95))
             .setLabel("save and clear")
               .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
                 ; 
   cp5.addBang("quit")
     .setPosition(x, y+step*6)
       .setSize(80, h)
-        .setColorBackground(color(60))
-          .setColorForeground(color(95))
+       .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(60))
+            .setColorForeground(color(95))
             .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
               ;
   drop0 = cp5.addDropdownList("methods")
@@ -358,9 +365,12 @@ void initCP5() {
     .setPosition(x+130, y+step-20)
       .setSize(110, h)
         .setFont(font)
-          .setColor(color(255, 0, 0))
+         
             .setColorBackground(color(60))
               .setColorForeground(color(95))
+               .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
                 .setAutoClear(false)
                   ;
   //g1 is single layer structred glyphs               
@@ -379,6 +389,9 @@ void initCP5() {
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
             .setSliderMode(Slider.FLEXIBLE)
+             .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
               .setGroup(g1)
                 ;
   cp5.addSlider("slider11")
@@ -387,6 +400,9 @@ void initCP5() {
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
             .setSliderMode(Slider.FLEXIBLE)
+             .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
               .setGroup(g1)
                 ;
 
@@ -395,6 +411,9 @@ void initCP5() {
       .setSize(20, 20)
         .addItem("LR", 0)
           .addItem("TB", 1)
+           .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
             .setGroup(g1)
               ;             
 
@@ -414,6 +433,9 @@ void initCP5() {
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
             .setSliderMode(Slider.FLEXIBLE)
+             .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
               .setGroup(g2)
                 ;
   cp5.addSlider("slider21")
@@ -422,6 +444,9 @@ void initCP5() {
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
             .setSliderMode(Slider.FLEXIBLE)
+             .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
               .setGroup(g2)
                 ;
 
@@ -431,6 +456,9 @@ void initCP5() {
         .addItem("Left/Right", 0)
           .addItem("Top/Bottom", 1)
             .addItem("None", 2)
+             .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
               .setGroup(g2)
                 ;             
   //g3 is second child of double structred glyphs               
@@ -449,6 +477,9 @@ void initCP5() {
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
             .setSliderMode(Slider.FLEXIBLE)
+             .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
               .setGroup(g3)
                 ;
   cp5.addSlider("slider31")
@@ -458,6 +489,9 @@ void initCP5() {
           .setNumberOfTickMarks(10)
             .setSliderMode(Slider.FLEXIBLE)
               .setGroup(g3)
+               .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
                 ;
 
   cp5.addRadioButton("radio3")
@@ -466,6 +500,9 @@ void initCP5() {
         .addItem("Left.Right", 0)
           .addItem("Top.Bottom", 1)
             .addItem("none", 2)
+             .setColorActive(color(250, 159, 73))
+           .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
               .setGroup(g3)
                 ;  
 
@@ -484,8 +521,9 @@ void initCP5() {
       .setSize(80, 20)
         .addItem("Left / Right", 0)
           .addItem("Top / Bottom", 1)
-           .setColorActive(color(90))
+           .setColorActive(color(250, 159, 73))
            .setColorBackground(color(90))
+            .setColorForeground(color(250, 159, 73))
             .setGroup(g4)
               ;
 }
@@ -523,8 +561,10 @@ void customize(DropdownList ddl) {
   ddl.addItem("enter code", 2);
   ddl.addItem("design", 1);
   //ddl.scroll(0);
-  ddl.setColorBackground(color(60));
-  ddl.setColorForeground(color(95));
+  ddl.setColorBackground(color(90));
+  ddl.setColorForeground(color(250, 159, 73));
+   ddl.setColorActive(color(250, 159, 73));
+
 }
 
 void customizeDropLayer(DropdownList ddl) {
@@ -538,8 +578,9 @@ void customizeDropLayer(DropdownList ddl) {
   ddl.addItem("1 layer", 0);
   ddl.addItem("2 layers", 1);
   //ddl.scroll(0);
-  ddl.setColorBackground(color(60));
-  ddl.setColorForeground(color(95));
+  ddl.setColorBackground(color(90));
+  ddl.setColorForeground(color(250, 159, 73));
+  ddl.setColorActive(color(250, 159, 73));
 }
 
 void controlEvent(ControlEvent theEvent) {

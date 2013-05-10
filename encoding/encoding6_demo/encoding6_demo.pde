@@ -38,11 +38,11 @@ boolean showPoetry = false;
 
 void setup() {
 
-  size( 900, 800, P2D);
+  size( 1200, 800, P2D);
   background(255);
   smooth(); 
   pg = createGraphics(250, 250, P2D);
-  textSize(28);
+  textSize(42);
   words = new HashMap();
   //upload data from old file
   convertFiletoHashmap("wordEncoding0.txt");
@@ -200,7 +200,7 @@ void renderMatchingGlyph(String s, int h) {
     String word = input[i];
     if (words.containsKey(word)) {
       Radical r = (Radical) words.get(word);
-      translate(200,0);
+      translate(200, 0);
       r.render(this.g);
     }
     else {
@@ -240,81 +240,86 @@ void convertFiletoHashmap(String s) {
 
 void initCP5() {
   //init font first before initiating cp5
-  font = createFont("arial", 16);
+  font = createFont("helvetica", 18);
 
-  cp5 = new ControlP5(this);
+  ControlFont thefont = new ControlFont ( font );
+
+  cp5 = new ControlP5(this, thefont);
   int x = 50;
   int y = 220;
-  int w = 110;
-  int h = 20;
+  int w = 140;
+  int h = 40;
   int step = 70; //vertical gap
 
+
   cp5.addButton("Encode")
-    .setPosition(x, y-50)
-      .setSize(80, h)
-        .setColorBackground(color(60))
-          .setColorForeground(color(95))
-            ;
+    .setPosition(x, y-80)
+      .setSize(140, h)
+        .setColorActive(color(250, 159, 73))
+          .setColorBackground(color(60))
+            .setColorForeground(color(95))
+              ;
   cp5.addButton("Decode")
-    .setPosition(x+80, y-50)
-      .setSize(80, h)
-        .setColorBackground(color(60))
-          .setColorForeground(color(95))
-            ;
+    .setPosition(x+160, y-80)
+      .setSize(130, h)
+        .setColorActive(color(250, 159, 73))
+          .setColorBackground(color(60))
+            .setColorForeground(color(95))
+              ;
   cp5.addTextfield("input word")
     .setPosition(x, y)
       .setSize(w, h)
-        .setFont(font)
+        .setFont(createFont("helvetica", 26))
           .setFocus(true)
             .setColor(color(255, 0, 0))
               .setAutoClear(false)
                 .setColorBackground(color(60))
                   .setColorForeground(color(95))
-                  .setColorActive(color(60))
-                    ;
+                    .setColorActive(color(60))
+                      ;
 
   cp5.addTextfield("input word to decode")
-    .setPosition(x, y)
+    .setPosition(x, y+60)
       .setSize(w*2, h)
-        .setFont(font)
+         .setFont(createFont("helvetica", 26))
           .setColor(color(255, 0, 0))
-             .setColorActive(color(90))
-           .setColorBackground(color(60))
-            .setColorForeground(color(95))
-                .setAutoClear(false)
-                
-                  ;
+            .setColorActive(color(90))
+              .setColorBackground(color(60))
+                .setColorForeground(color(95))
+                  .setAutoClear(false)
+
+                    ;
   cp5.addTextfield("poetry1")
-    .setPosition(x, y+step)
+    .setPosition(x, y+step+60)
       .setSize(w*2, h)
-        .setFont(font)
+         .setFont(createFont("helvetica", 26))
           .setColor(color(255, 0, 0))
-             .setColorActive(color(90))
-           .setColorBackground(color(60))
-            .setColorForeground(color(95))
-                .setAutoClear(false)
-                 
-                  ;
+            .setColorActive(color(90))
+              .setColorBackground(color(60))
+                .setColorForeground(color(95))
+                  .setAutoClear(false)
+
+                    ;
   cp5.addTextfield("poetry2")
-    .setPosition(x, y+step*2)
+    .setPosition(x, y+step*2+60)
       .setSize(w*2, h)
-        .setFont(font)
+         .setFont(createFont("helvetica", 26))
           .setColor(color(255, 0, 0))
-             .setColorActive(color(90))
-           .setColorBackground(color(60))
-            .setColorForeground(color(95))
-                .setAutoClear(false)
-                  ;
+            .setColorActive(color(90))
+              .setColorBackground(color(60))
+                .setColorForeground(color(95))
+                  .setAutoClear(false)
+                    ;
   cp5.addTextfield("poetry3")
-    .setPosition(x, y+step*3)
+    .setPosition(x, y+step*3+60)
       .setSize(w*2, h)
-        .setFont(font)
+         .setFont(createFont("helvetica", 26))
           .setColor(color(255, 0, 0))
-             .setColorActive(color(90))
-           .setColorBackground(color(60))
-            .setColorForeground(color(95))
-                .setAutoClear(false)
-                  ;
+            .setColorActive(color(90))
+              .setColorBackground(color(60))
+                .setColorForeground(color(95))
+                  .setAutoClear(false)
+                    ;
 
   myTextarea = cp5.addTextarea("txt")
     .setPosition(x, y)
@@ -322,10 +327,10 @@ void initCP5() {
         .setFont(createFont("arial", 12))
           .setLineHeight(14)
             .setColor(color(0))
-              
-           .setColorBackground(color(255))
-            
-  ;
+
+              .setColorBackground(color(255))
+
+                ;
   myTextarea.setText("call die happy die know not"
     +"have ear open say own wrong"
     +"tell all talk not draw dog"
@@ -336,196 +341,206 @@ void initCP5() {
     );
 
   cp5.addBang("clear")
-    .setPosition(x, y+step*5)
+    .setPosition(x, y+step*5+100)
       .setSize(80, h)
-         .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(60))
+        .setColorActive(color(250, 159, 73))
+          .setColorBackground(color(60))
             .setColorForeground(color(95))
-            .setLabel("save and clear")
-              .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
-                ; 
+              .setLabel("save")
+                .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
+                  ; 
   cp5.addBang("quit")
-    .setPosition(x, y+step*6)
+    .setPosition(x, y+step*6+100)
       .setSize(80, h)
-       .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(60))
+        .setColorActive(color(250, 159, 73))
+          .setColorBackground(color(60))
             .setColorForeground(color(95))
-            .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
-              ;
+              .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
+                ;
   drop0 = cp5.addDropdownList("methods")
-    .setPosition(x, y+step)
+    .setPosition(x, y+step*2)
       ;
   customize(drop0);
   dropLayers = cp5.addDropdownList("layers")
-    .setPosition(x+130, y+step)
+    .setPosition(x+250, y+step*2)
       ;
   customizeDropLayer(dropLayers);
 
   cp5.addTextfield("enter encoding")
-    .setPosition(x+130, y+step-20)
+    .setPosition(x+250, y+step*2-50)
       .setSize(110, h)
         .setFont(font)
-         
-            .setColorBackground(color(60))
-              .setColorForeground(color(95))
-               .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-                .setAutoClear(false)
-                  ;
+
+          .setColorBackground(color(60))
+            .setColorForeground(color(95))
+              .setColorActive(color(250, 159, 73))
+                .setColorBackground(color(90))
+                  .setColorForeground(color(250, 159, 73))
+                    .setAutoClear(false)
+                      ;
   //g1 is single layer structred glyphs               
   Group g1 = cp5.addGroup("g1")
-    .setPosition(x+280, y+step)
+    .setPosition(x+470, y+step*2)
       .setWidth(500)
-        .setHeight(15)
+        .setHeight(29)
           .setLabel("Single Layer Glyphs")
-            .setColorBackground(color(60))
-              //.setColorForeground(color(95))
-              .setBackgroundHeight(300)
-                ;
+            .setColorBackground(color(90))
+              .setColorActive(color(250, 159, 73))
+                .setColorForeground(color(250, 159, 73))
+                  //.setColorForeground(color(95))
+                  .setBackgroundHeight(300)
+                    ;
   cp5.addSlider("slider10")
-    .setPosition(120, 30)
+    .setPosition(140, 30)
       .setSize(300, 16)
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
-            .setSliderMode(Slider.FLEXIBLE)
-             .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-              .setGroup(g1)
-                ;
+            .setColorCaptionLabel(0)
+              .setSliderMode(Slider.FLEXIBLE)
+                .setColorActive(color(250, 159, 73))
+                  .setColorBackground(color(90))
+                    .setColorForeground(color(250, 159, 73))
+                      .setGroup(g1)
+                        ;
+
+
   cp5.addSlider("slider11")
-    .setPosition(120, 70)
+    .setPosition(140, 70)
       .setSize(300, 16)
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
-            .setSliderMode(Slider.FLEXIBLE)
-             .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-              .setGroup(g1)
-                ;
+            .setColorCaptionLabel(0)
+              .setSliderMode(Slider.FLEXIBLE)
+                .setColorActive(color(250, 159, 73))
+                  .setColorBackground(color(90))
+                    .setColorForeground(color(250, 159, 73))
+                      .setGroup(g1)
+                        ;
 
   cp5.addRadioButton("radio1")
-    .setPosition(10, 10)
+    .setPosition(10, 30)
       .setSize(20, 20)
-        .addItem("LR", 0)
-          .addItem("TB", 1)
-           .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-            .setGroup(g1)
-              ;             
+        .addItem("L-R", 0)
+          .addItem("T-B", 1)
+            .setColorActive(color(250, 159, 73))
+              .setColorBackground(color(90))
+                .setColorForeground(color(250, 159, 73))
+                  .setGroup(g1)
+                    ;             
 
   //g2 is first child of double structured glyphs             
   Group g2 = cp5.addGroup("g2")
-    .setPosition(x+280, y+step+100)
+    .setPosition(x+500, y+step+200)
       .setWidth(500)
-        .setHeight(15)
+        .setHeight(25)
           .setLabel("sub-layer 1")
             .setColorBackground(color(60))
               .setBackgroundHeight(300)
 
                 ;
   cp5.addSlider("slider20")
-    .setPosition(120, 30)
+    .setPosition(180, 30)
       .setSize(300, 16)
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
-            .setSliderMode(Slider.FLEXIBLE)
-             .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-              .setGroup(g2)
-                ;
+            .setColorCaptionLabel(0)
+              .setSliderMode(Slider.FLEXIBLE)
+                .setColorActive(color(250, 159, 73))
+                  .setColorBackground(color(90))
+                    .setColorForeground(color(250, 159, 73))
+                      .setGroup(g2)
+                        ;
   cp5.addSlider("slider21")
-    .setPosition(120, 70)
+    .setPosition(180, 70)
       .setSize(300, 16)
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
             .setSliderMode(Slider.FLEXIBLE)
-             .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-              .setGroup(g2)
-                ;
+              .setColorCaptionLabel(0)
+                .setColorActive(color(250, 159, 73))
+                  .setColorBackground(color(90))
+                    .setColorForeground(color(250, 159, 73))
+                      .setGroup(g2)
+                        ;
 
   cp5.addRadioButton("radio2")
     .setPosition(10, 30)
       .setSize(20, 20)
-        .addItem("Left/Right", 0)
-          .addItem("Top/Bottom", 1)
+         .addItem("L / R.", 0)
+          .addItem("T / B.", 1)
             .addItem("None", 2)
-             .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-              .setGroup(g2)
-                ;             
+              .setColorActive(color(250, 159, 73))
+                .setColorBackground(color(90))
+                  .setColorForeground(color(250, 159, 73))
+                    .setGroup(g2)
+                      ;             
   //g3 is second child of double structred glyphs               
   Group g3 = cp5.addGroup("g3")
-    .setPosition(x+280, y+step+250)
+    .setPosition(x+500, y+step+350)
       .setWidth(500)
-        .setHeight(15)
+        .setHeight(25)
           .setLabel("sub-layer 2")
             .setColorBackground(color(60))
               .setBackgroundHeight(300)
 
                 ;
   cp5.addSlider("slider30")
-    .setPosition(120, 30)
+    .setPosition(180, 30)
       .setSize(300, 16)
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
             .setSliderMode(Slider.FLEXIBLE)
-             .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-              .setGroup(g3)
-                ;
+              .setColorCaptionLabel(0)
+                .setColorActive(color(250, 159, 73))
+                  .setColorBackground(color(90))
+                    .setColorForeground(color(250, 159, 73))
+                      .setGroup(g3)
+                        ;
   cp5.addSlider("slider31")
-    .setPosition(120, 70)
+    .setPosition(180, 70)
       .setSize(300, 16)
         .setRange(0, 9) // values can range from big to small as well
           .setNumberOfTickMarks(10)
             .setSliderMode(Slider.FLEXIBLE)
               .setGroup(g3)
-               .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-                ;
+                .setColorCaptionLabel(0)
+                  .setColorActive(color(250, 159, 73))
+                    .setColorBackground(color(90))
+                      .setColorForeground(color(250, 159, 73))
+                        ;
 
   cp5.addRadioButton("radio3")
     .setPosition(10, 30)
       .setSize(20, 20)
-        .addItem("Left.Right", 0)
-          .addItem("Top.Bottom", 1)
+        .addItem("L / R", 0)
+          .addItem("T / B", 1)
             .addItem("none", 2)
-             .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-              .setGroup(g3)
-                ;  
+              .setColorActive(color(250, 159, 73))
+                .setColorBackground(color(90))
+                  .setColorForeground(color(250, 159, 73))
+                    .setGroup(g3)
+                      ;  
 
   //g4 is the little group that chooses main structure of 2-layer glyphs              
   Group g4 = cp5.addGroup("g4")
-    .setPosition(x+280, y+step)
+    .setPosition(x+500, y+step*2)
       .setBackgroundHeight(100)
-        .setWidth(100)
-          .setHeight(15)
+        .setWidth(200)
+          .setHeight(28)
             .setLabel("main structure")
-              .setColorBackground(color(60))
+              .setColorBackground(color(90))
 
                 ;   
   cp5.addRadioButton("radioMain")
     .setPosition(10, 10)
-      .setSize(80, 20)
+      .setSize(20, 20)
         .addItem("Left / Right", 0)
           .addItem("Top / Bottom", 1)
-           .setColorActive(color(250, 159, 73))
-           .setColorBackground(color(90))
-            .setColorForeground(color(250, 159, 73))
-            .setGroup(g4)
-              ;
+            .setColorActive(color(250, 159, 73))
+              .setColorBackground(color(90))
+                .setColorForeground(color(250, 159, 73))
+                  .setGroup(g4)
+                    ;
 }
 
 void savePNG() {
@@ -552,7 +567,8 @@ void Decode() {
 void customize(DropdownList ddl) {
   ddl.setBackgroundColor(color(255));
   ddl.setItemHeight(25);
-  ddl.setBarHeight(15);
+  ddl.setBarHeight(30);
+  ddl.setSize(200, 180);
   ddl.captionLabel().set("select method");
   ddl.captionLabel().style().marginTop = 3;
   ddl.captionLabel().style().marginLeft = 3;
@@ -563,15 +579,15 @@ void customize(DropdownList ddl) {
   //ddl.scroll(0);
   ddl.setColorBackground(color(90));
   ddl.setColorForeground(color(250, 159, 73));
-   ddl.setColorActive(color(250, 159, 73));
-
+  ddl.setColorActive(color(250, 159, 73));
 }
 
 void customizeDropLayer(DropdownList ddl) {
   ddl.setBackgroundColor(color(255));
   ddl.setItemHeight(25);
-  ddl.setBarHeight(15);
-  ddl.captionLabel().set("number of layers");
+  ddl.setBarHeight(30);
+  ddl.setSize(200, 180);
+  ddl.captionLabel().set("layers");
   ddl.captionLabel().style().marginTop = 3;
   ddl.captionLabel().style().marginLeft = 3;
   ddl.valueLabel().style().marginTop = 3;
@@ -862,10 +878,10 @@ void keyPressed() {
   }
   if ( key == 'z') {
     showPoetry = !showPoetry;
-     clear();
+    clear();
   }
   //if ( key == '1' ) {
-    //savePNG();
-  //} 
+  //savePNG();
+  //}
 }
 
